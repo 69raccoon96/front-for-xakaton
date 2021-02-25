@@ -54,4 +54,10 @@ const SButton = styled.button`
   background-color: ${COLORS.DARK_PURPLE};
 `;
 
-export { SPageWrapper, SLegend, SForm, SLabel, SButton };
+const SErrorText = styled.p`
+  margin: 0 0 16px;
+
+  color: ${COLORS.RED};
+`;
+
+export { SPageWrapper, SLegend, SForm, SLabel, SButton, SErrorText };

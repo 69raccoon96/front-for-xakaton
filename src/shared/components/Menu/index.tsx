@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { useHistory, useLocation } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import { runInAction } from 'mobx';
 
 import {
   SWrapper,
@@ -17,17 +19,22 @@ import avatar from '../../../media/images/decorative/avatar.svg';
 import { menuItems } from './data';
 import exit from '../../../media/images/decorative/exit.svg';
 import { Paths } from '../../defaults';
+import { useAppStore } from '../../../mobx';
 
-const Menu: React.FC = () => {
+const Menu: React.FC = observer(() => {
   const { pathname } = useLocation();
   const history = useHistory();
+  const { store } = useAppStore();
 
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
 
-  const onLogout = () => {
+  const onLogout = async () => {
+    await store.logout();
     localStorage.removeItem('isAuthenticated');
     history.push(Paths.Login);
   };
+
+  const userInfo = runInAction(() => store.userInfo);
 
   return isAuthenticated ? (
     <SWrapper>
@@ -35,8 +42,8 @@ const Menu: React.FC = () => {
         <SAvatarWrapper>
           <img src={avatar} alt='avatar' />
         </SAvatarWrapper>
-        <SUserName>Фамилия Имя Отчество</SUserName>
-        <SUserGroup>РИ-290002</SUserGroup>
+        <SUserName>{`${userInfo?.surname} ${userInfo?.name}`}</SUserName>
+        <SUserGroup>{`РИ-${userInfo?.group}`}</SUserGroup>
       </SUserCard>
       <SMenuList>
         {menuItems.map(menuItem => (
@@ -55,6 +62,6 @@ const Menu: React.FC = () => {
       </SButton>
     </SWrapper>
   ) : null;
-};
+});
 
 export { Menu };

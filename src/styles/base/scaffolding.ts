@@ -8,7 +8,7 @@ export const scaffolding = css`
   }
 
   body {
-    min-width: 1200px;
+    min-width: 400px;
 
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;

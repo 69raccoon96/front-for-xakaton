@@ -3,7 +3,7 @@ enum Paths {
   Login = '/login',
   Disciplines = '/disciplines',
   Trajectories = '/trajectories',
-  CreateTrajectory = '/createTrajectory',
+  CreateTrajectory = '/create-trajectory',
 }
 
 export { Paths };
