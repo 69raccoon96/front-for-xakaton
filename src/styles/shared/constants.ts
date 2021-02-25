@@ -1,6 +1,8 @@
 enum COLORS {
-  BLACK = '#000000',
+  BLACK = '#32373A',
   WHITE = '#FFFFFF',
+  LIGHT_PURPLE = '#F6F6FE',
+  DARK_PURPLE = '#5555CD',
 }
 
 export { COLORS };

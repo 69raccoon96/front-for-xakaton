@@ -1,7 +1,8 @@
 import React from 'react';
+import { SPageWrapper } from '../styles';
 
 const Home: React.FC = () => {
-  return <div> Home</div>;
+  return <SPageWrapper> Home</SPageWrapper>;
 };
 
 export { Home };
