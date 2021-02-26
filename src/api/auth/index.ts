@@ -1,5 +1,6 @@
 import { API } from '../index';
-import { IDiscipline, ILogin, ITrajectory, ITrajectoryInfo, IUser } from './models';
+import { courserMapper } from './mappers';
+import { IAvailableCourses, ICoursesDto, IDiscipline, ILogin, ITrajectory, ITrajectoryInfo, IUser } from './models';
 
 class AuthService {
   login = async (requestData: ILogin): Promise<IUser> => {
@@ -17,21 +18,31 @@ class AuthService {
   };
 
   getTrajectories = async (id: string): Promise<ITrajectory[]> => {
-    const { data } = await API.get('/percents', { params: { id } });
+    const { data } = await API.get<ITrajectory[]>('/percents', { params: { id } });
 
     return data;
   };
 
   getTrajectoryInfo = async (id: string): Promise<ITrajectoryInfo> => {
-    const { data } = await API.get('/courseinfo', { params: { id } });
+    const { data } = await API.get<ITrajectoryInfo>('/courseinfo', { params: { id } });
 
     return data;
   };
 
   getDisciplines = async (id: string): Promise<IDiscipline> => {
-    const { data } = await API.get('/profile', { params: { id } });
+    const { data } = await API.get<IDiscipline>('/profile', { params: { id } });
 
     return data;
+  };
+
+  getAvailableCourses = async (id: string): Promise<IAvailableCourses> => {
+    const { data } = await API.get<ICoursesDto>('/courseschoose', { params: { id } });
+
+    return courserMapper(data);
+  };
+
+  setCourse = async (idSubject: string, idUser: string): Promise<void> => {
+    await API.get('/addsubject', { params: { idUser, idSubject } });
   };
 }
 

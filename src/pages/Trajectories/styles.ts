@@ -14,11 +14,19 @@ const STrajectoryCard = styled(Link)`
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   border-radius: 20px;
 
   background-color: ${COLORS.WHITE};
   text-decoration: none;
+
+  img {
+    width: 26px;
+    height: 26px;
+
+    margin-left: 16px;
+  }
 `;
 
 const STrajectoryCardDescription = styled.div``;

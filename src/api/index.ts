@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://taskiot.herokuapp.com',
+  baseURL: 'https://hackathoniot.herokuapp.com',
   responseType: 'json',
   withCredentials: true,
 });

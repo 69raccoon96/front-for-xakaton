@@ -55,6 +55,7 @@ module.exports = {
     'no-bitwise': 'off',
     'no-return-assign': 'off',
     'consistent-return': 'off',
+    'no-plusplus': 'off',
   },
   env: {
     browser: true,

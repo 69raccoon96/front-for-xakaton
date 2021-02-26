@@ -13,7 +13,7 @@ export const scaffolding = css`
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     color: ${COLORS.BLACK};
-    letter-spacing: 0.25px;
+    letter-spacing: 0.1em;
     line-height: 1.2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

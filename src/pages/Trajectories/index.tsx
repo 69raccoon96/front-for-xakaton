@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { runInAction, toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
@@ -16,8 +16,10 @@ import {
   STrajectoryPercent,
 } from './styles';
 import arrow from '../../media/images/decorative/arrow.svg';
+import { ITrajectory } from '../../api/auth/models';
 
 const Trajectories: React.FC = observer(() => {
+  const [trajectories, setTrajectories] = useState<ITrajectory[]>([]);
   const { store } = useAppStore();
 
   const breadcrumbSequence: IBreadcrumbItem[] = [
@@ -34,10 +36,9 @@ const Trajectories: React.FC = observer(() => {
   useEffect(() => {
     (async function getTrajectories() {
       await store.setTrajectories();
+      setTrajectories(runInAction(() => toJS(store.trajectories)));
     })();
   }, [store]);
-
-  const trajectories = runInAction(() => toJS(store.trajectories));
 
   return (
     <SPageWrapper>

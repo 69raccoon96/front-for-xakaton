@@ -26,7 +26,7 @@ const Menu: React.FC = observer(() => {
   const history = useHistory();
   const { store } = useAppStore();
 
-  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  const isAuthenticated = pathname !== Paths.Login;
 
   const onLogout = async () => {
     await store.logout();

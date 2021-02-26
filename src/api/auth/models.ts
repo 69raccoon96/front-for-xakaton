@@ -21,14 +21,41 @@ export interface ITrajectory {
 
 export interface ITrajectoryInfo {
   id: string;
+  info: string;
   name: string;
-  hard: string[] | string[][];
+  hard: (string | string[])[];
   soft: string[];
 }
 
-export interface IDiscipline {
+export interface ICourse {
   id: string;
   name: string;
-  hard: string[] | string[][];
-  soft: string[];
+  semesters: number[];
+  type: 'hard' | 'soft';
+  hours: number;
+  count: number;
+  info: string;
+  teacher: string;
+}
+
+export interface IDiscipline {
+  hard: ICourse[];
+  soft: ICourse[];
+}
+
+export interface ICourses {
+  name: string;
+  good: ICourse[];
+  normal: ICourse[];
+}
+
+export interface ICoursesDto {
+  good: ICourse[];
+  normal: ICourse[];
+  semester: number;
+}
+
+export interface IAvailableCourses {
+  courses: ICourses[];
+  semester: number;
 }
