@@ -1,0 +1,15 @@
+enum COLORS {
+  BLACK = '#32373A',
+  BLACK_50 = 'rgba(50,55,58, 0.5)',
+  WHITE = '#FFFFFF',
+  LIGHT_PURPLE = '#F6F6FE',
+  DARK_PURPLE = '#5555CD',
+  LIGHT_GREEN = '#E6F8D0',
+  LIGHT_BLUE = '#D0E4F8',
+  LIGHT_RED = '#F8D0D0',
+  LIGHT_GREY = '#EFEFEF',
+  GREY = '#BEBEBE',
+  RED = '#B00020',
+}
+
+export { COLORS };
