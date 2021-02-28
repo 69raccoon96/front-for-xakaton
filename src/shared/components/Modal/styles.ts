@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro';
-import { COLORS } from '../../../styles/shared/constants';
+import styled from "styled-components/macro";
+import { COLORS } from "../../../styles/shared/constants";
 
 const SBlackout = styled.div`
   position: fixed;
@@ -32,6 +32,7 @@ const SModal = styled.div`
   padding: 22px 40px 40px;
 
   min-width: 414px;
+  max-width: 505px;
 
   border-radius: 10px;
 

@@ -1,11 +1,11 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
-import { COLORS } from '../styles/shared/constants';
+import { COLORS } from "../styles/shared/constants";
 
 const SPageWrapper = styled.div`
   padding: 45px 105px 45px 525px;
 
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
 
   background-color: ${COLORS.LIGHT_PURPLE};
